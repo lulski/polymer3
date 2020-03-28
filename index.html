@@ -11,77 +11,99 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Template Polymer 3.0 App">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#fff">
     <link rel="icon" href="manifest/favicon.ico">
     <link rel="manifest" href="manifest.json">
-    <link rel="canonical" href="https://start-polymer3.firebaseapp.com/" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" async></script>
-    <script src="./src/start-polymer3.js" type="module" async></script>
-
-    <title>Start Polymer 3.0</title>
-    <style>
-        app-header {
-            background-color: #4285f4;
-            color: #fff;
-        }
-
-        app-header paper-icon-button {
-            --paper-icon-button-ink-color: white;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Roboto', 'Noto', sans-serif;
-            background-color: #eee;
-        }
-    </style>
-</head>
-
-<body>
-    <app-header-layout fullbleed>
-        <app-header slot="header" effects="waterfall" condenses reveals>
-            <app-toolbar>
-                <div spacer main-title>Lulski Blog</div>
-            </app-toolbar>
-            <app-toolbar>
-                <paper-icon-button icon="menu"></paper-icon-button>
-                <paper-icon-button icon="search"></paper-icon-button>
-            </app-toolbar>
-
-        </app-header>
-        <div>
-            <start-polymer3>
-                <!-- 
-              Placeholder Content: This content will be replaced when <start-polymer3>
-              is rendered.
-              
-              Placeholder content improves perceived render time and makes sure
-              users with JavaScript disabled will see something helpful.
-            -->
-
-                <h1>Start Polymer 3.0</h1>
-                <p id="jsyes"></p>
-                <script type="text/javascript">
-                    document.getElementById('jsyes').innerHTML = 'Loading...'
-                </script>
-                <noscript>
-                    <p>Could not render the custom element. Check that JavaScript is enabled.</p>
-                </noscript>
-            </start-polymer3>
-        </div>
-    </app-header-layout>
+    <script src="./src/verylongtext.js" type="module" async></script>
 
     <script type="module">
-        import '@polymer/app-layout/app-header-layout/app-header-layout.js';
         import '@polymer/app-layout/app-layout.js';
-        import '@polymer/paper-icon-button/paper-icon-button.js';
-        import '@polymer/iron-icons/iron-icons.js';
-        import '@polymer/app-layout/app-scroll-effects/effects/waterfall.js';
-        import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js';
+        import '@polymer/iron-flex-layout/iron-flex-layout.js';
+        import '@polymer/paper-tabs/paper-tabs.js';
+        import '@polymer/paper-tabs/paper-tab.js';
+
     </script>
+    <title>lulski Polymer 3.0</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<style is="custom-style">
+    paper-tabs {
+        background: var(--paper-blue-900);
+    }
+
+    :root {
+        --paper-tabs-selection-bar-color: red;
+
+    }
+
+    .my-class {
+        --paper-tabs-selection-bar-color: black;
+    }
+
+
+    .container {
+        background-color: #ccc;
+        padding: 5px;
+        margin: 0;
+    }
+
+    .container>div {
+        padding: 15px;
+        margin: 5px;
+        background-color: white;
+        min-height: 20px;
+    }
+
+    .flex {
+        text-decoration: wavy;
+        color: blueviolet;
+        @apply --layout-horizontal;
+    }
+</style>
+
+<body>
+    <app-header-layout>
+        <app-header condenses>
+            <app-toolbar>
+                <h1 main-title>App name</h1>
+            </app-toolbar>
+            <app-toolbar sticky> sticky search </app-toolbar>
+
+        </app-header>
+        <paper-tabs selected="0">
+            <paper-tab>sticky 1</paper-tab>
+            <paper-tab>sticky 2</paper-tab>
+            <paper-tab>sticky 3</paper-tab>
+            <paper-tab>sticky 4</paper-tab>
+        </paper-tabs>
+        <paper-tabs selected="0" class="my-class" fitContainer=true>
+            <paper-tab>Tab 0</paper-tab>
+            <paper-tab>Tab 1</paper-tab>
+            <paper-tab>Tab 2</paper-tab>
+            <paper-tab>Tab 3</paper-tab>
+        </paper-tabs>
+
+        <very-long-text></very-long-text>
+    </app-header-layout>
+
+    <div class="vertical-section-container centered">
+        <h4>Horizontal and vertical layout</h4>
+        <div class="container flex">
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
